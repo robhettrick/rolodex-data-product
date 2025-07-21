@@ -1,8 +1,5 @@
 import json
-from datetime import timedelta
 
-from fastapi.security import OAuth2PasswordBearer
-from fastapi_jwt import JwtAccessBearer
 from pydantic import BaseModel
 
 from app.config import settings
@@ -11,8 +8,6 @@ DEFAULT_USERS_DB = {
     "alice": {"password": "secret1", "roles": ["user"]},
     "bob": {"password": "secret2", "roles": ["admin", "user"]}
 }
-
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="auth/login")
 
 # Load users database from a JSON file path, fallback to hard-coded defaults
 users_db_file = settings.USERS_DB_FILE
