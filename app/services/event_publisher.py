@@ -2,7 +2,7 @@ import json
 import logging
 import redis
 
-from config import settings
+from app.config import settings
 
 logging.basicConfig(level=logging.INFO)
 

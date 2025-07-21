@@ -7,8 +7,8 @@ import time
 
 from app.db.session import SessionLocal
 from app.models.external_identifier import ExternalIdentifier
+from app.config import settings
 
-REDIS_URL = "redis://localhost:6379/0"
 STREAM = "outbox:ExternalIdentifierCreated"
 GROUP = "external_identifier_reader"
 CONSUMER_NAME = "rolodex-data-product-consumer"
@@ -16,7 +16,11 @@ CONSUMER_NAME = "rolodex-data-product-consumer"
 logging.basicConfig(level=logging.INFO)
 
 # Use synchronous client
-redis_client = redis.Redis(host='localhost', port=6379, db=0)
+redis_client = redis.Redis(
+    host=settings.REDIS_HOST,
+    port=int(settings.REDIS_PORT),
+    db=int(settings.REDIS_DB)
+)
 
 @contextmanager
 def get_db():
