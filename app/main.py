@@ -11,7 +11,7 @@ from fastapi.responses import PlainTextResponse
 
 from app.db.session import SessionLocal, engine, Base
 from app.models.outbox_event import OutboxEvent
-from app.routes import auth
+from app.routes import auth, health
 from app.services.event_publisher import publish_event
 
 
@@ -76,6 +76,7 @@ app = FastAPI(
 
 # Add auth route
 app.include_router(auth.router, prefix="/auth", tags=["Authentication"])
+app.include_router(health.router)
 # Include API endpoints
 app.include_router(parties.router, prefix="/parties", tags=["Parties"])
 app.include_router(persons.router, prefix="/persons", tags=["Persons"])

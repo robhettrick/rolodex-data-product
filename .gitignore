@@ -7,3 +7,4 @@ __pycache__/
 .idea/
 rolodex_data.db
 users.json
+aws/
