@@ -1,10 +1,11 @@
-import pytest
-from fastapi.testclient import TestClient
-from app.main import app
-from app.db.session import Base, engine
 import uuid
+
 import pytest
 import redis
+from fastapi.testclient import TestClient
+
+from app.db.session import Base, engine
+from app.main import app
 
 client = TestClient(app)
 

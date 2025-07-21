@@ -27,6 +27,7 @@ pydantic-settings==2.10.1
 pydantic_core==2.33.2
 Pygments==2.19.2
 PyJWT==1.7.1
+PyMySQL==1.1.1
 pytest==8.4.1
 python-dotenv==1.1.1
 python-multipart==0.0.20
