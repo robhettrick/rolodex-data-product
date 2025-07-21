@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from fastapi_jwt import JwtAccessBearer, JwtAuthorizationCredentials
 from pydantic import BaseModel
 
-from app.auth import authenticate_user
+from app.auth.auth import authenticate_user
 from app.config import settings
 
 # Schema for login request
