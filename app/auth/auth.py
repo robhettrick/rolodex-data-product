@@ -27,10 +27,6 @@ class User(BaseModel):
     password: str
     roles: list[str]
 
-jwt_bearer = JwtAccessBearer(secret_key=settings.JWT_SECRET_KEY,
-                             algorithm=settings.JWT_ALGORITHM,
-                             access_expires_delta=timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES))
-
 def authenticate_user(username: str, password: str):
     user = users_db.get(username)
     if not user or user['password'] != password:
