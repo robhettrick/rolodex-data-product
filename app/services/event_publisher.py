@@ -2,9 +2,15 @@ import json
 import logging
 import redis
 
-logging.basicConfig(level=logging.INFO)
-redis_client = redis.Redis(host='localhost', port=6379, db=0)
+from config import settings
 
+logging.basicConfig(level=logging.INFO)
+
+redis_client = redis.Redis(
+    host=settings.REDIS_HOST,
+    port=int(settings.REDIS_PORT),
+    db=int(settings.REDIS_DB)
+)
 
 def publish_event(event_type: str, payload: dict):
     event_data = json.dumps(payload)
